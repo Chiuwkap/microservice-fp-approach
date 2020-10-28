@@ -1,7 +1,6 @@
 package com.application.functionalapproach.model;
 
 import lombok.*;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +25,5 @@ public class Philosopher {
     private final int age;
 
     private final String category;
-
 
 }
