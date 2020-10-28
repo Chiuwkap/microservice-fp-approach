@@ -1,9 +1,6 @@
 package com.application.functionalapproach.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.With;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,25 +8,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @ToString
+@EqualsAndHashCode
+@With
 public class Philosopher {
 
     //id field with @Id is mandatory
     @Id
     //@GeneratedValue is to specify the column increment strategy
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private final Long id;
+    private final Integer id;
 
-    //@With immutable 'setters'
-    @With private final String name;
+    private final String name;
 
-    @With private final int age;
+    private final int age;
 
-    public Philosopher(Long id, String name, int age) {
+    private final String category;
+
+
+    public Philosopher(Integer id, String name, int age, String category) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.category = category;
     }
 }
