@@ -23,13 +23,17 @@ public class PhilosopherController {
     }
 
     @GetMapping("/id/{id}")
-    public Optional<Philosopher> getPhilosopherById(@PathVariable("id") final Long id){
-        return philosopherService.getPhilosopherById(id);
+    public ResponseEntity<Philosopher> getPhilosopherById(@PathVariable("id") final Long id){
+        return philosopherService
+                .getPhilosopherById(id)
+                .map(ResponseEntity::ok).orElseGet(() ->
+                        new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Philosopher>> getPhilosopherByCategory(@PathVariable("category") final String category){
-         return philosopherService.getPhilosopherByCategory(category)
+         return philosopherService
+                 .getPhilosopherByCategory(category)
                  .map(ResponseEntity::ok).orElseGet(() ->
                          new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
@@ -40,7 +44,7 @@ public class PhilosopherController {
         return philosopherService
                 .getOldestPhilosopherByAge()
                 .map(ResponseEntity::ok).orElseGet(() ->
-                new ResponseEntity<>(HttpStatus.NOT_FOUND));
+                        new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
 
