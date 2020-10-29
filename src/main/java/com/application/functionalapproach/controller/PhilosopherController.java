@@ -20,7 +20,6 @@ public class PhilosopherController {
         this.philosopherService = philosopherService;
     }
 
-    //Get rid of this one after testing
     @GetMapping("/all")
     public Iterable<Philosopher> getAllPhilosopher(){
         return philosopherService.getAllPhilosopher();
@@ -32,8 +31,13 @@ public class PhilosopherController {
     }
 
     @GetMapping("/category/{category}")
-    public List<Philosopher> getPhilosopherByCategory(@PathVariable final String category){
+    public List<Philosopher> getPhilosopherByCategory(@PathVariable("category") final String category){
          return philosopherService.getPhilosopherByCategory(category);
 
+    }
+
+    @GetMapping("/oldest")
+    public Integer getOldestPhilosopher(){
+        return philosopherService.getOldestPhilosopherByAge();
     }
 }

@@ -4,8 +4,8 @@ import com.application.functionalapproach.model.Philosopher;
 import com.application.functionalapproach.repository.PhilosopherRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 public class PhilosopherService {
@@ -29,5 +29,13 @@ public class PhilosopherService {
         return philosopherRepository.findByCategory(category);
     }
 
+    // Stream API Operations
+    public Integer getOldestPhilosopherByAge() {
 
+        List<Philosopher> philosophers = new ArrayList<>();
+        Comparator<Philosopher> comparator = Comparator.comparing(Philosopher::getAge);
+        Optional<Philosopher> getOldestOne = philosophers.stream().max(comparator);
+
+        return philosopherRepository.findOldestPhilosopherByAge(getOldestOne);
+    }
 }
