@@ -22,11 +22,6 @@ public class PhilosopherController {
         this.philosopherService = philosopherService;
     }
 
-    @GetMapping("/all")
-    public Iterable<Philosopher> getAllPhilosopher(){
-        return philosopherService.getAllPhilosopher();
-    }
-
     @GetMapping("/id/{id}")
     public Optional<Philosopher> getPhilosopherById(@PathVariable("id") final Long id){
         return philosopherService.getPhilosopherById(id);

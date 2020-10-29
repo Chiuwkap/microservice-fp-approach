@@ -17,10 +17,6 @@ public class PhilosopherService {
         this.philosopherRepository = philosopherRepository;
     }
 
-    public Iterable<Philosopher> getAllPhilosopher(){
-        return philosopherRepository.findAll();
-    }
-
     public Optional<Philosopher> getPhilosopherById(final Long id){
             return philosopherRepository.findById(id);
     }
