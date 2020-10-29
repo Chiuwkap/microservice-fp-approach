@@ -3,9 +3,7 @@ package com.application.functionalapproach.service;
 import com.application.functionalapproach.model.Philosopher;
 import com.application.functionalapproach.repository.PhilosopherRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
-import java.util.stream.Stream;
 
 @Service
 public class PhilosopherService {
@@ -29,9 +27,8 @@ public class PhilosopherService {
     public Optional<Integer> getOldestPhilosopherByAge() {
 
         List<Philosopher> philosophers = new ArrayList<>();
-        Comparator<Philosopher> comparator = Comparator.comparing(Philosopher::getAge);
-        Optional<Philosopher> getOldestOne = philosophers.stream().max(comparator);
-
+        var comparator = Comparator.comparing(Philosopher::getAge);
+        var getOldestOne = philosophers.stream().max(comparator);
         return philosopherRepository.findOldestPhilosopherByAge(getOldestOne);
     }
 
