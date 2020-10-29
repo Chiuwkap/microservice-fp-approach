@@ -25,12 +25,12 @@ public class PhilosopherService {
             return philosopherRepository.findById(id);
     }
 
-    public List<Philosopher> getPhilosopherByCategory(final String category){
+    public Optional<List<Philosopher>> getPhilosopherByCategory(final String category){
         return philosopherRepository.findByCategory(category);
     }
 
     // Stream API Operations
-    public Integer getOldestPhilosopherByAge() {
+    public Optional<Integer> getOldestPhilosopherByAge() {
 
         List<Philosopher> philosophers = new ArrayList<>();
         Comparator<Philosopher> comparator = Comparator.comparing(Philosopher::getAge);
@@ -38,4 +38,6 @@ public class PhilosopherService {
 
         return philosopherRepository.findOldestPhilosopherByAge(getOldestOne);
     }
+
+
 }

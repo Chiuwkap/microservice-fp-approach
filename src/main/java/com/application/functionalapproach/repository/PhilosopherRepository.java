@@ -14,10 +14,10 @@ public interface PhilosopherRepository extends CrudRepository<Philosopher, Long>
     /**
     * Query Methods
     */
-    List<Philosopher> findByCategory(String category);
+    Optional<List<Philosopher>> findByCategory(String category);
 
     @Query("SELECT max(age) FROM Philosopher")
-    Integer findOldestPhilosopherByAge(Optional<Philosopher> b);
+    Optional<Integer> findOldestPhilosopherByAge(Optional<Philosopher> getOldestOne);
 
 }
 

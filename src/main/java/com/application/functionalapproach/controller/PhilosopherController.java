@@ -2,6 +2,8 @@ package com.application.functionalapproach.controller;
 
 import com.application.functionalapproach.model.Philosopher;
 import com.application.functionalapproach.service.PhilosopherService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,13 +33,20 @@ public class PhilosopherController {
     }
 
     @GetMapping("/category/{category}")
-    public List<Philosopher> getPhilosopherByCategory(@PathVariable("category") final String category){
-         return philosopherService.getPhilosopherByCategory(category);
+    public ResponseEntity<List<Philosopher>> getPhilosopherByCategory(@PathVariable("category") final String category){
+         return philosopherService.getPhilosopherByCategory(category)
+                 .map(ResponseEntity::ok).orElseGet(() ->
+                         new ResponseEntity<>(HttpStatus.NOT_FOUND));
 
     }
 
     @GetMapping("/oldest")
-    public Integer getOldestPhilosopher(){
-        return philosopherService.getOldestPhilosopherByAge();
+    public ResponseEntity<Integer> getOldestPhilosopher(){
+        return philosopherService
+                .getOldestPhilosopherByAge()
+                .map(ResponseEntity::ok).orElseGet(() ->
+                new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+
 }
