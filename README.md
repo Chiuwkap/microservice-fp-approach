@@ -1,8 +1,10 @@
 ## Microservices.fp.approach
 
-Prewarn: Highlights might be wrong in IDE.
-The Application is working even 
-if the IDE highlights are red.
+Simple guide to start:
+
+1. git clone URL
+2. cd into the repo
+3. gradle bootRun
 
 Microservice & Funcational Programming style approach
 
@@ -12,6 +14,7 @@ Microservice & Funcational Programming style approach
 - Immutable Objects
 - Gradle 6.7
 - Rest API
-- Postman
+- Swagger 
+- Postman or Swagger-UI
 - H2 Database
-- Swagger and Swagger-ui
+
