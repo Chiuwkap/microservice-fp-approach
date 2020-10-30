@@ -1,16 +1,17 @@
 ## Microservices.fp.approach
 
-PRE-WARNING: Highlights might be wrong in IDE.
+Prewarn: Highlights might be wrong in IDE.
 The Application is working even 
 if the IDE highlights are red.
 
-Microservices & Funcational Programming style approach
+Microservice & Funcational Programming style approach
 
+- JDK 11
 - Java 8 Streams API
 - Lombok - plugin might needed in IDE
 - Immutable Objects
-- Gradle
-- Unit testing
+- Gradle 6.7
 - Rest API
 - Postman
 - H2 Database
+- Swagger and Swagger-ui

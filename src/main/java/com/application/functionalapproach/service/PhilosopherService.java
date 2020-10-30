@@ -15,12 +15,16 @@ public class PhilosopherService {
         this.philosopherRepository = philosopherRepository;
     }
 
-    public Optional<Philosopher> getPhilosopherById(final Long id){
-            return philosopherRepository.findById(id);
+    public Optional<Philosopher> getPhilosopherById(final Long id) {
+        return philosopherRepository.findById(id);
     }
 
-    public Optional<List<Philosopher>> getPhilosopherByCategory(final String category){
+    public Optional<List<Philosopher>> getPhilosopherByCategory(final String category) {
         return philosopherRepository.findByCategory(category);
+    }
+
+    public Philosopher addPhilosopher(final Philosopher philosopher) {
+        return philosopherRepository.save(philosopher);
     }
 
     // Stream API Operations
@@ -30,7 +34,6 @@ public class PhilosopherService {
         var comparator = Comparator.comparing(Philosopher::getAge);
         var getOldestOne = philosophers.stream().max(comparator);
         return philosopherRepository.findOldestPhilosopherByAge(getOldestOne);
+
     }
-
-
 }
