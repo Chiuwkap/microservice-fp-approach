@@ -8,9 +8,6 @@ import java.util.Optional;
 
 public interface PhilosopherRepository extends CrudRepository<Philosopher, Long> {
 
-    /**
-    * Query Methods
-    */
     Optional<List<Philosopher>> findByCategory(String category);
 
     @Query("SELECT max(age) FROM Philosopher")

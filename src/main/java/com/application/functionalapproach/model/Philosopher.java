@@ -15,9 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Philosopher {
 
-    //id field with @Id is mandatory
     @Id
-    //@GeneratedValue is to specify the column increment strategy
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @ApiModelProperty(value = "Identifies a Philosopher")
     private final Long id;

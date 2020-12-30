@@ -10,7 +10,6 @@ public class PhilosopherService {
 
     private final PhilosopherRepository philosopherRepository;
 
-    //Constructor Injection
     private PhilosopherService(PhilosopherRepository philosopherRepository) {
         this.philosopherRepository = philosopherRepository;
     }
@@ -36,4 +35,7 @@ public class PhilosopherService {
         return philosopherRepository.findOldestPhilosopherByAge(getOldestOne);
 
     }
+
+    //TODO: PUT Method and Delete Method
+    //TODO: GET: Philosopher > certain age
 }
